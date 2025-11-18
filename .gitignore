@@ -82,3 +82,10 @@ logs/
 
 # config files
 backend/config/*.json
+
+
+# Ignore Nixpacks cache
+.nixpacks/
+__pycache__/
+*.pyc
+.env
