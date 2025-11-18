@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python312", "pip"]
+nixPkgs = ["python312Full"]
 
 # Use the default Python install behavior but ensure we use the right requirements file
 [phases.install]
