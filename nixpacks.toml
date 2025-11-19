@@ -1,21 +1,16 @@
 [phases.setup]
-nixPkgs = ["python312Full"]  # Includes Python 3.12 + pip
+nixPkgs = ["python312Full"]
 
 [phases.install]
-cmds = [
-    # Upgrade pip and install dependencies from backend/requirements.txt
-    "/opt/venv/bin/python -m pip install --upgrade pip",
-    "/opt/venv/bin/python -m pip install -r backend/requirements.txt"
-]
+cmds = []  # Leave empty. Nixpacks auto-installs dependencies from requirements.txt
 
 [phases.build]
 cmds = [
-    "echo 'Copying backend files to root'",
     "cp -r backend/* ."
 ]
 
 [start]
-cmd = "/opt/venv/bin/uvicorn main:app --host 0.0.0.0 --port $PORT"
+cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
 
 [variables]
 PYTHONPATH = "/app"
